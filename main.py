@@ -5,17 +5,13 @@
 
 
 
-
-
-
-
-
-
-
 #Menu
 
 
-#Tanque le jeu n'est pas fermer
+#aficher le menu
+    #1 aficher le score
+    #2 lancer une partie
+    #3 quiter le jeu
 #choix du Joueur
 #tanque le choix n'est pas valide (c'est un entier et que le nombre soit compri entre le min=1 et le max=3)
     #si le nombre est un entier
@@ -26,6 +22,7 @@
     #1 aficher le score
 #si le choix est egale a 2
     #2 lancer une partie
+    #demander au joueur son nom
     #cree une equipe
         #tanque l'equipe n'est pas  valide(l'equipe est constitue de 3personnage)
             #afficher la liste des personnage
@@ -41,7 +38,8 @@
             #afficher le dega recu sur le monstre
             #si monster est mort(pv=0)
                 #suprimer le monstre
-        #affiche le score  
+        #affiche le score  avec le nom du jouer
+        #enregistre le score
             
     
 # sinon
