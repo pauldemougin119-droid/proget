@@ -18,7 +18,10 @@
 #inisialisation defence
 
 
-#methode attack(self)
+#methode personnage attack(self)
+    #self.vie =self.attack-self.defence
+    #retourner self.vie
+#methode  monstre attack(self)
     #self.vie =self.attack-self.defence
     #retourner self.vie
 
@@ -33,5 +36,5 @@
             #ajouter personager dans la liste des personnage
         #retouner la liste des personnager
 
-#methode afficher stat
+#methode afficher stat combat()
     #message f"personnage ou monstre a recu ... en dega il lui reste des .... pv 

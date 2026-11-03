@@ -31,21 +31,6 @@
     #retourne vraix
 
 
-
-
-
-
-
-
-
-    
-    
-
-   
-
-
-
-
 #lancement(choix)
     #si le choix est egale a 1  
         #1 afficher le score()
@@ -54,44 +39,35 @@
     # sinon
         #3 quiter le jeu()
 
-#recuper un nom valide()
-    #boucle infini
-        #demende un nom de l'utilisateur
-        #chek nom user valide()
-
-#chek nom use valide()
-    #boncle infini
-        #si le choix n'est pas un nombre
-            #retourner faux
-        #retourner vraix
-
 #lancer une partie
-    #recuper un nom valide()                                              <-nom du Joueur
-    #cree  equipe complet()
-    
-    
-#chek equipe complet ()
+    #demende un nom de l'utilisateur 
+    #tant que il n'est valide chek equipe complet()
+        #cree  equipe complet()
+
+ #chek equipe complet ()
     #boucle infini
         #si la longuer de la liste de l'equipe est egale a 3
             #retouner vrai
-        
-        #retourner faux
-#recuper personage db()                                             <- importe pymongo pour se coneter a la db
-    #se connter a la db
-    #je recuper la bibliotheque jeu
-    #je recuper la colection perosnage
-    
-#cree une equipe compelet()
-    #chek equipe complet()                     
-    #afficher personnage  en poo(db)                                    
+        #retourner faux       
+
+#cree une equipe compelet()                    
+    #afficher les personnage (db)                                   
     #recuper personnage valide()
-      
-      
-#demender personage au jouer()
-    #boucle infini
-        #input choix du joueur 
-        #chek personge valide()
-        
+    
+    
+#afficher les personnager(db)
+    #liste des personnage=list(colection) 
+     
+#recuper personage valide()
+    #demender personnage valide()
+    #ajouter personnag dans l'equipe()
+    #combat()       
+           
+#personnage valide()
+    #tant que chek personnage valide() n'est pas valide
+        #input choix du joueur  
+    #return choix 
+    
 #chek personager valide (choix)
     #boucle infini      
         #si choix est un nombre
@@ -103,56 +79,39 @@
     #inisaliser l'equipe
     #ajouter le choix dans l'equiper
 
-#recuper personage valide()
-    #demender personnager au jouer()
-    #ajouter personnag dans l'equipe()
-    #combat()     
+ 
+ #combat()
+    #tant que personnage est en vie()
+        #choisir un monstre aléatoirement()  
+        #lancer une vaguer() 
+        #si monstre n' a pas chek pv valide()
+            #score+1
             
+#choisir un monstre aléatoirement()
+    #importer choice
+             
  #personnage est en vie()
     #personnage en vie est une liste vide
     #pour chaque menbre de l'equipe
         #si persannager chek pv valide()
             #ajouter le personnage a la liste
-            
-               
+    #return persannage ne vie
+                          
 #chek pv valide()
     #boucle infini
         #si pv >0
             #retourner vraix
         #sinon
             #retourner faux
-            #afficher un mesage :"le personnage ou le monstre est mort"    
-
-
-#choisir un monstre aléatoirement()
-    #importer choice
-
-#combat()
-    #tant que persinnage est en vie
-        #choisir un monstre aléatoirement()  
-        #lancer une vaguer() 
-        #si monstre n' a pas chek pv valide()
-            #score+1
-            
-   
-#choisir un personage aléatoirement de l'equipe(equipe)
-    #importer choice        
+            #afficher un mesage :"le personnage ou le monstre est mort"       
             
 #lancer une vaguer()
-    # attack ()                        <- methode dans la classe principale(entites) 
-    #afficher les states combat()                           
-
+    #pour chaque personnage est en vie()  
+        # personnage attack () 
+        #afficher les states combat()
+    #monstre attack()                           
  
- 
-#--------------------------------------------------------------
 
-    #cree une equipe
-            #afficher la liste des personnage
-            #tanque le personnge n'est pas valide (le personnage est en str et doit constiteu la liste des personnage)
-    #combat
-            
-            #affciher le message:"c'est au tour du perssonage ...(valuer au dessus) de jouer "
-            #afficher un message :"c'est au tour du monstre de jouer"
             
                 
         #affiche le score  avec le nom du joueur
