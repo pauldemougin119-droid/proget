@@ -98,37 +98,64 @@
     #demender personnager au jouer()
     #ajouter personnag dans l'equipe()
     #combat()
+    
+#chek equipe pv valide()
+    #pour chaque personage de l"equipe
+        #si chek pv valide()
+            #retourner vraix
+        #sinon
+            #afficher message: Vous aver perdu voici le score
+            #afficher score    
+#chek pv valide()
+    #boucle infini
+        #si pv >0
+            #retourner vraix
+        #sinon
+            #retourner faux
+            #afficher un mesage :"le personnage ou le monstre est mort"    
+
+
+#choisir un monstre aléatoirement()
+    #importer choice
+
+
+__________________________________________________________
 
 #combat()
-    #boucle infini
-        #chek equipe pv valide()                                <- meme fonction a utilise (pv valide)
-            #choisir un personage pv valide aléatoirement()     <- meme fonction a utilise (pv valide)
-            #personage/monstre attack ()                        <- methode dans la classe principale
+    #tant que chek equipe pv valide() 
+        #choisir un monstre aléatoirement()  
+        #lancer une vaguer() 
+        #si monstre a chek valide()
+            #score+1
             
+   
+#choisir un personage aléatoirement de l'equipe(equipe)
+    #importer choice
+ 
+ #personnage qui est en vie()
+    #personnage en vie est une liste vide
+    #pour chaque menbre de l'equipe
+        #si persannager chek pv valide()
+            #ajouter le personnage a la liste
+
+           
             
+#lancer une vaguer()
+    #choisir personnage qui est en vie()
+        #personage/monstre attack ()                        <- methode dans la classe principale
+    #afficher les states combat()                           <- methode dans la classe
 
-
-    #réinitialiser le score a 0
+ 
+ 
+ 
+ _______________________________________________________________
+ 
     #cree une equipe
             #afficher la liste des personnage
             #tanque le personnge n'est pas valide (le personnage est en str et doit constiteu la liste des personnage)
-
-        #choisir a aléatoirement 1 monstre
-        #tant que les personnage de l'equipe on leur pv valide
+    #combat
             
-            #choisir un personage aléatoirement de l'equipe
             #affciher le message:"c'est au tour du perssonage ...(valuer au dessus) de jouer "
-            #si le personager/monstre a pv valide 
-                #le personage/monstre attack 
-                    #pv=attacke-defence
-                #afficher les statistuque du personnage /monstre
-            #si pv invalide
-                #afficher un mesage :"le personnage ou le monstre est mort"
-            #afficher les pv
-            #afficher degat recu
-            #si monstre a pv invalide
-                #ajouter le score
-                #choisir a aléatoirement 1 monstre
             #afficher un message :"c'est au tour du monstre de jouer"
             
                 
