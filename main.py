@@ -34,7 +34,7 @@
     #si le nombre est inferie au min et superei au maximune
         #message : le choix est invalide ressiser un choix valide
         #retourne faux
-    #retourne vraix
+    #retourne vrai
 
 
 #lancement(choix)
@@ -48,45 +48,47 @@
 #lancer une partie()
     #demende un nom de l'utilisateur 
     #tant que il n'est valide chek equipe complet()
-        #cree une equipe complet()
+        #cree une equipe valide()
     #combat()
 
  #chek equipe complet ()
     #boucle infini
-        #si la longuer de la liste de l'equipe est egale a 3
+        #si la longuer de la liste de l'equipe est egale a la longue de l'equipe
             #retouner vrai
         #message : votre equipe est incomplete
         #retourner faux       
-
-#cree une equipe compelet()                                                   
-    #recuper personnage valide()
-           
+ 
+#cree une equipe valide()
+    #inisialise l'equipe vide
+    #afficher la liste des personage disponible(db,equipe)    <- on peut peut etre simplifier
+    #demender personnage valide
+    #tant que chek personage valide n'est pas valide()
+        #afficher la liste des personage disponible(db,equipe)
+        #demender une personnage valide
+    #ajouter personnag dans l'equipe(choix)
+    #retouner l'equipe
     
 #afficher la liste des personnager disponible(db,equipe)
-    #transforme les personnage en liste
+    #transforme collection personnage en liste des personnage      <-chek fonction annex (class)
     #liste des personnage diponible=list vide
     #pour chaque perso dans la liste des personage
         #si le personage n'est pas dans l'equipe
             #ajouter le personage dans la liste des peronage disponible
-    #retouner la liste des personage disponible
-     
-#recuper personage valide()
-    #inisialise l'equipe
-    #afficher la liste des personage disponible(db)    <- on peut peut etre simplifier
-    #demender personnage valide
-    #tant que chek personage valide n'est pas valide()
-        #afficher la liste des personage disponible(db)
-        #demender une personnage valide
-    #ajouter personnag dans l'equipe()
-    #retouner l'equipe
+        #idice des personnage disponible()
+    #retouner la liste des personage disponible  
        
-#chek personager valide (choix)
+#chek personager valide (choix,#mininume est egale au mini des personnage disponible,#maiximun est egal au maximuni des personnag disponible)
     #boucle infini      
-        #si choix est un nombre
+        #si choix n' est  pas un nombre 
             # afficher message :choix invalide choissisez un personage de la liste
             #retouner faux
-        #sinon
-            #retouner vraix
+        #si choix<min et choix>maxi
+            # afficher message :choix invalide choissisez un personage de la liste
+            #retouner faux
+        
+#idice des personnage disponible()
+    #pour chaque indice de personnage disponible
+        #afficher :"i","nom","attack","defence","pv"
                 
 #ajouter personnage dans l'equipe(choix)
     #inisaliser l'equipe
