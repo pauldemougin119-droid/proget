@@ -6,10 +6,7 @@
 
 
 
-#afficher le menu()
-    #1 afficher le score
-    #2 lancer une partie
-    #3 quiter le jeu
+#-------------------------------- Debut du jeu -------------------------
     
     
 #main()   
@@ -18,60 +15,76 @@
         #recuper un choix valide ()
         #lancement(choix)
 
+#afficher le menu()
+    #1 afficher le score
+    #2 lancer une partie
+    #3 quiter le jeu
+    
+    
 #recuperer un choix valide(min,max)
+    #demonde un choix au joueur
     #tant que ce n'est pas chek in choix valid()
         #demonde un choix au joueur
     #retourner int(choix)
 
 #chek un choix valide(choix,min,max)
     #si le nombre n'est pas un entier
+        #message : le choix est invalide ressiser un choix valide
         #retourne faux
     #si le nombre est inferie au min et superei au maximune
+        #message : le choix est invalide ressiser un choix valide
         #retourne faux
     #retourne vraix
 
 
 #lancement(choix)
     #si le choix est egale a 1  
-        #1 afficher le score()
+        #1 afficher le score()                      <- pas encofer le score est l'affcihage du scor avd la db
     #si le choix est egale a 2
         #2 lancer une partie()
     # sinon
         #3 quiter le jeu()
 
-#lancer une partie
+#lancer une partie()
     #demende un nom de l'utilisateur 
     #tant que il n'est valide chek equipe complet()
-        #cree  equipe complet()
+        #cree une equipe complet()
+    #combat()
 
  #chek equipe complet ()
     #boucle infini
         #si la longuer de la liste de l'equipe est egale a 3
             #retouner vrai
+        #message : votre equipe est incomplete
         #retourner faux       
 
-#cree une equipe compelet()                    
-    #afficher les personnage (db)                                   
+#cree une equipe compelet()                                                   
     #recuper personnage valide()
+           
     
-    
-#afficher les personnager(db)
-    #liste des personnage=list(colection) 
+#afficher la liste des personnager disponible(db,equipe)
+    #transforme les personnage en liste
+    #liste des personnage diponible=list vide
+    #pour chaque perso dans la liste des personage
+        #si le personage n'est pas dans l'equipe
+            #ajouter le personage dans la liste des peronage disponible
+    #retouner la liste des personage disponible
      
 #recuper personage valide()
-    #demender personnage valide()
+    #inisialise l'equipe
+    #afficher la liste des personage disponible(db)    <- on peut peut etre simplifier
+    #demender personnage valide
+    #tant que chek personage valide n'est pas valide()
+        #afficher la liste des personage disponible(db)
+        #demender une personnage valide
     #ajouter personnag dans l'equipe()
-    #combat()       
-           
-#personnage valide()
-    #tant que chek personnage valide() n'est pas valide
-        #input choix du joueur  
-    #return choix 
-    
+    #retouner l'equipe
+       
 #chek personager valide (choix)
     #boucle infini      
         #si choix est un nombre
             # afficher message :choix invalide choissisez un personage de la liste
+            #retouner faux
         #sinon
             #retouner vraix
                 
@@ -79,6 +92,7 @@
     #inisaliser l'equipe
     #ajouter le choix dans l'equiper
 
+ #-----------------------------------------------Combat---------------------------------
  
  #combat()
     #tant que personnage est en vie()
@@ -87,15 +101,15 @@
         #si monstre n' a pas chek pv valide()
             #score+1
             
-#choisir un monstre aléatoirement()
-    #importer choice
-             
  #personnage est en vie()
     #personnage en vie est une liste vide
     #pour chaque menbre de l'equipe
         #si persannager chek pv valide()
-            #ajouter le personnage a la liste
-    #return persannage ne vie
+            #ajouter le personnage a la liste 
+    #return 
+               
+#choisir un monstre aléatoirement()
+    #importer choice            
                           
 #chek pv valide()
     #boucle infini
@@ -110,10 +124,12 @@
         # personnage attack () 
         #afficher les states combat()
     #monstre attack()                           
- 
+    #afficher les states combat()
 
             
-                
+            
+            
+#_______________________________________________________________________                    
         #affiche le score  avec le nom du joueur
         #enregistre le score dans mongodb
             
