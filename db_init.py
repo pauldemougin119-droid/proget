@@ -39,4 +39,4 @@ Characters.drop()
 Monsters.drop()
 
 Characters.insert_many(CharacterList)
-Monsters.insert_many(CharacterList)
+Monsters.insert_many(EnemyList)
