@@ -30,4 +30,4 @@ class Character(Entity):
             if item.name == slot_name:
                 return item
     def project_dammage(self,cible):
-        )
+    
