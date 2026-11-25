@@ -28,7 +28,8 @@ class Player:
     def teams_is_alive(self,teams,max_teams):
         if len(teams) != 0:
             return True
-        
+        return False
+
     def check_inventory(self,liste_inventaire,item):
         if item in liste_inventaire:
             return True
