@@ -356,6 +356,7 @@ def get_valid_choice(message, options, error_message):
 	choice = inquirer.select(
 		message=message,
 		choices=options,
+		height=1800,
 	).execute()
 	return options.index(choice) + 1
 
