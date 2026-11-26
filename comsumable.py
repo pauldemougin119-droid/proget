@@ -1,6 +1,6 @@
 from items import *
 
-class Consomable:
+class Consomable(Items):
     def __init__(self):
         super().__init__()
 

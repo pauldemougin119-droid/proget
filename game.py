@@ -1,10 +1,15 @@
 import os
 import pymongo
+# import affichage
+import Player
+from vague import Vague
+
+
 
 
 class Game:
-    def __init__(self,player):
-        self.player = player
+    def __init__(self):
+        
         self.client= pymongo.MongoClient(os.getenv("localhost:27017"))
         db = self.client["game_db"]
         collection = db["games"]  
@@ -23,8 +28,12 @@ class Game:
                 return save
         return None
     def launch_game(self):
-        choix_joueur=input("choisissez un psedo ")
-        lancer_game=Game(choix_joueur)
+        choix_joueur=input("donner un psedo")
+        joueur=Player(choix_joueur)
+        joueur.pick_caracter()
+        vague=Vague(recuperer_monstres_db)
+        vague.pick_enemy()
+        vague.play_vague()
         
     def show_leaderboard(self,collection):
         leaderboard=collection.find()
@@ -33,3 +42,12 @@ class Game:
     def exit(self):
         print("Merci d'avoir joué ! À bientôt !")
         exit()
+        
+        
+def recuperer_persos_db(db):
+    liste_character=list(db["characters"].find())
+    return liste_character
+
+def recuperer_monstres_db(db):
+    list_monstre=list(db["monsters"].find())
+    return list_monstre

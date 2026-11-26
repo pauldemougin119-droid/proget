@@ -1,9 +1,8 @@
 class Player:
-    def __init__(self,name:str,score:int,liste_carractere,liste_inventaire):
-        self.name = name
-        self.score = score
-        self.liste_carractere = liste_carractere
-        self.liste_inventaire = liste_inventaire
+    def __init__(self,name):
+        self.score = 0
+        self.liste_carractere = []
+        self.liste_inventaire = []
         
     max_teams=3  
         
@@ -15,7 +14,7 @@ class Player:
             
             return False
     
-    def pick_caracter(self,liste_carractere,choix,create_teams,max_teams):    #lien avec affichage pour choisir le personnage
+    def pick_caracter(self,liste_carractere,create_teams,max_teams):    #lien avec affichage pour choisir le personnage
         while create_teams(self,max_teams) == True:
             choix = int(input("Choisissez un personnage à ajouter à votre équipe (0-2) : "))
             self.teams.append(liste_carractere[choix-1])
