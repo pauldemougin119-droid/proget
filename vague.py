@@ -1,4 +1,5 @@
-from enemy  import Monster
+from enemy  import Enemy
+from character import Character
 
 class Vague:
     def __init__(self, list_monsters):
@@ -13,7 +14,20 @@ class Vague:
         elif vague_actuel> 5 and vague_actuel< 10:
             difficulty = 2
             return difficulty
-        elif vague_actuel> 10 and vague_actuel< 15:
+        elif vague_actuel> 10 :
             difficulty = 3
             return difficulty
+    
+    def pick_enemy(self, list_monsters):
+        choix_enemy= input("Choisissez un ennemi à combattre : ")
+        return choix_enemy
+        
+    def play_vague(self,team,choix_enemy):
+        while choix_enemy.is_alive()==True:
+            for character in team:
+                character.attack(choix_enemy)
+            choix_enemy.attack(team)
+        self.vague_actuel += 1
+        return self.vague_actuel
+            
         

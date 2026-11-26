@@ -17,11 +17,10 @@ class Player:
     
     def pick_caracter(self,liste_carractere,choix,create_teams,max_teams):    #lien avec affichage pour choisir le personnage
         while create_teams(self,max_teams) == True:
-            #demander choix a l'utilisateur
-                self.teams.append(liste_carractere[choix])
-                return self.team
+            choix = int(input("Choisissez un personnage à ajouter à votre équipe (0-2) : "))
+            self.teams.append(liste_carractere[choix-1])
+            return self.team
         
-        self.teams.append(liste_carractere[choix])
         return self.teams
     
     
@@ -31,6 +30,12 @@ class Player:
         return False
 
     def check_inventory(self,liste_inventaire,item):
-        if item in liste_inventaire:
-            return True
-        return False
+        for item in liste_inventaire:
+            print(f"Vous possédez l'objet : {item.name}")
+            
+    def use_item(self,liste_inventaire,item):
+        for items in liste_inventaire:
+            if items.name == item.name:
+                print(f"Vous utilisez l'objet : {item.name}")
+                return item.effect
+         

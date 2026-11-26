@@ -6,11 +6,15 @@ class Character(Entity):
         self.equipement = []
       
     @property  
+    def attack(self,item,attack):
+        take_damage = attack + item.effect
+        return take_damage     
     
-    
-    
-    
-        
+    @property
+    def defense(self,item,defense):
+        take_defense = defense + item.effect
+        return take_defense
+
     def equiper_items(self,items,equipement): 
         self.equipement.append(items)
         return self.equipement
@@ -29,5 +33,12 @@ class Character(Entity):
         for item in equipement:
             if item.name == slot_name:
                 return item
-    def project_dammage(self,cible):
-    
+    def project_dammage(self,liste_monsters):
+        choix_cible = input("Choisissez une cible : ")
+        cible=liste_monsters[int(choix_cible)-1]
+        self.take_damage(self.attack, cible.defense)
+        self.attack(cible.take_damage, cible.hp)
+        return cible.hp
+        
+   
+        

@@ -7,7 +7,9 @@ class Entity:
         self.hpmax = hp   
         
     def is_alive(self):
-        return self.hp > 0
+        if self.hp > 0:
+            return  True
+        return False
     
     def take_damage(self,attack,defense):
         domage = attack - defense
@@ -26,4 +28,8 @@ class Entity:
         if self.hp < 0:
             self.hp = 0
         return self.hp
+    def play_turn(self,cible):
+        attack = cible.attack
+        return attack
+
   
