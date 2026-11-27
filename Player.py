@@ -1,26 +1,24 @@
+
 class Player:
-    def __init__(self,name):
+    def __init__(self,name,recuperer_perso_db):
+        self.name=name
         self.score = 0
-        self.liste_carractere = []
+        self.liste_carractere = recuperer_perso_db
         self.liste_inventaire = []
+        max_teams=3  
         
-    max_teams=3  
-        
-    def create_teams(self,max_teams):
+    def create_teams(self,max_teams,pick_caracter,liste_caractere):
         self.teams = []
         for character in self.liste_carractere:
             if len(self.teams) == max_teams:
                 return True
             
-            return False
+            return pick_caracter(liste_caractere)
     
-    def pick_caracter(self,liste_carractere,create_teams,max_teams):    #lien avec affichage pour choisir le personnage
-        while create_teams(self,max_teams) == True:
+    def pick_caracter(self,liste_carractere):    #lien avec affichage pour choisir le personnage
             choix = int(input("Choisissez un personnage à ajouter à votre équipe (0-2) : "))
             self.teams.append(liste_carractere[choix-1])
             return self.team
-        
-        return self.teams
     
     
     def teams_is_alive(self,teams,max_teams):

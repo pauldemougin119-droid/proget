@@ -1,7 +1,7 @@
 import os
 import pymongo
 # import affichage
-import Player
+from Player import Player
 from vague import Vague
 
 
@@ -28,9 +28,9 @@ class Game:
                 return save
         return None
     def launch_game(self):
-        choix_joueur=input("donner un psedo")
-        joueur=Player(choix_joueur)
-        joueur.pick_caracter()
+        choix_joueur=input("donner votre psedo :")
+        joueur=Player(choix_joueur,recuperer_persos_db)
+        joueur.pick_caracter(recuperer_persos_db)
         vague=Vague(recuperer_monstres_db)
         vague.pick_enemy()
         vague.play_vague()

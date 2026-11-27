@@ -91,6 +91,7 @@ from rich.align import Align
 # # def creer_equipe(db):
 # # 	persos_db = recuperer_persos_db(db)
 # # 	equipe = []
+
 # # 	while not est_equipe_complete(equipe):
 # # 		# afficher_equipe(equipe)
 # # 		persos_dispo = creer_liste_persos_dispo(persos_db, equipe)
@@ -412,6 +413,7 @@ def lancer_processus(choice):
 	elif choice == 3:
 		game.close_db()
 	else:
+     
 		print("Choix invalide")
 
 
