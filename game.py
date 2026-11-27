@@ -1,6 +1,6 @@
 import os
 import pymongo
-# import affichage
+from vue import *
 from Player import Player
 from vague import Vague
 
@@ -36,6 +36,7 @@ class Game:
         vague.play_vague()
         
     def show_leaderboard(self,collection):
+        
         leaderboard=collection.find()
         for player in leaderboard:
             print(f"Player: {player['player_name']}, Score: {player['score']},teams: {player['teams']}")

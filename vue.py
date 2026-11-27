@@ -4,7 +4,9 @@ from rich.columns import Columns
 from rich.layout import Layout
 from typing import Callable
 from affichage import Affichage
-from game_classes import Character, Enemy, Item
+from character import Character
+from enemy import Enemy
+from items import Items
 from model import SaveDB, ScoreDB
 OPTIONS_TOUR = ["Attaquer", "Utiliser un objet", "Passer"]
 OPTIONS_ECRAN_TITRE = ["Nouvelle Partie",
@@ -28,7 +30,7 @@ def create_columns(cols) -> Layout:
 	return layout
 
 
-def details_objet(objet: Item) -> str:
+def details_objet(objet: Items) -> str:
 	lignes = [
 		objet.name,
 		objet.description,
@@ -51,7 +53,7 @@ def details_sauvegarde(sauvegarde: SaveDB) -> str:
 	return "\n".join(lignes)
 
 
-def VueInventaire(inventaire: List[Item], team: List[Character]) -> Callable:
+def VueInventaire(inventaire: List[Items], team: List[Character]) -> Callable:
 	def create_details_info(index: int) -> str:
 		if not inventaire:
 			return "Inventaire vide"
@@ -90,7 +92,7 @@ def VueInventaire(inventaire: List[Item], team: List[Character]) -> Callable:
 	return inner_VueInventaire
 
 
-def VueSelectionCibleObjet(objet: Item, team: List[Character]) -> Callable:
+def VueSelectionCibleObjet(objet: Items, team: List[Character]) -> Callable:
 	def inner_VueSelectionCibleObjet(index: int):
 
 		selected_box = Affichage.create_select_box(

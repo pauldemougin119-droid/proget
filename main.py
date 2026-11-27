@@ -1,14 +1,15 @@
-import builtins
-from time import sleep
-import enum
-import pymongo
-import os
+# import builtins
+# from time import sleep
+# import enum
+# import pymongo
+# import os
 from game import Game
+from vue import *
 
-from rich.console import Console
-from rich.panel import Panel
-from rich.columns import Columns
-from rich.align import Align
+# from rich.console import Console
+# from rich.panel import Panel
+# from rich.columns import Columns
+# from rich.align import Align
 
 
 # TEAM_SIZE = 3
@@ -392,13 +393,16 @@ from rich.align import Align
 # 	db = client["game_db"]
 # 	return db
 
-
 def main():
-	# db = connect_db()
-	while True:
-		#display_vue(vue_leaderboard)
-		choice = get_menu_choice()
-		lancer_processus(choice)
+	# db = connect_db()	
+	choice=Affichage.display_vue(VueEcranTitre(),4)
+	print(choice)
+
+
+
+
+
+	lancer_processus(choice)
 
 
 # def close_db():
@@ -407,12 +411,14 @@ def main():
 
 def lancer_processus(choice):
 	game=Game()
-	if choice == 1:
+	if choice == 0:
 		game.launch_game()
+	elif choice == 1:
+		game.load_game()
 	elif choice == 2:
 		game.show_leaderboard()
 	elif choice == 3:
-		game.close_db()
+		game.exit()
 	else:
      
 		print("Choix invalide")
