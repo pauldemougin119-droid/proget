@@ -401,9 +401,10 @@ def main():
 
 # def close_db():
 # 	client.close()
-game=Game()
+
 
 def lancer_processus(choice):
+	game=Game()
 	if choice == 1:
 		game.launch_game()
 	elif choice == 2:
@@ -456,4 +457,4 @@ def lancer_processus(choice):
 # 	afficher_scores(scores)
 
 
-# main()
+main()
