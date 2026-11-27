@@ -28,6 +28,7 @@ class Player:
         return False
 
     def check_inventory(self,liste_inventaire,item):
+        
         for item in liste_inventaire:
             print(f"Vous possédez l'objet : {item.name}")
             

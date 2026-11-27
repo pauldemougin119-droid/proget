@@ -334,55 +334,55 @@ from rich.align import Align
 # 	return choice == 1
 
 
-def clear_console():
-    # 'nt' correspond à Windows, 'posix' correspond à Linux et macOS
-    os.system('cls' if os.name == 'nt' else 'clear')
+# def clear_console():
+#     # 'nt' correspond à Windows, 'posix' correspond à Linux et macOS
+#     os.system('cls' if os.name == 'nt' else 'clear')
 
 
-MENU = [
-	"Lancer Jeu",
-	"Afficher LeaderBoard",
-	"Quitter"
-]
+# MENU = [
+# 	"Lancer Jeu",
+# 	"Afficher LeaderBoard",
+# 	"Quitter"
+# ]
 
 
-def error_message_choice():
-	print("Choix invalide, veuillez choisir une option valide")
+# def error_message_choice():
+# 	print("Choix invalide, veuillez choisir une option valide")
 
 
-def create_menu_message():
-	message = "Entrez votre choix: "
-	return message
+# def create_menu_message():
+# 	message = "Entrez votre choix: "
+# 	return message
 
 
-def get_valid_choice(message, options, error_message):
-	clear_console()
-	from InquirerPy import inquirer
-	choice = inquirer.select(
-		message=message,
-		choices=options,
-		height=1800,
-	).execute()
-	return options.index(choice) + 1
+# def get_valid_choice(message, options, error_message):
+# 	clear_console()
+# 	from InquirerPy import inquirer
+# 	choice = inquirer.select(
+# 		message=message,
+# 		choices=options,
+# 		height=1800,
+# 	).execute()
+# 	return options.index(choice) + 1
 
 
-def is_valid(choice, options):
+# def is_valid(choice, options):
 
-	if not choice.isdigit():
-		return False
+# 	if not choice.isdigit():
+# 		return False
 
-	choice = int(choice)
+# 	choice = int(choice)
 
-	if choice < 1 or choice > len(options):
-		return False
+# 	if choice < 1 or choice > len(options):
+# 		return False
 
-	return True
+# 	return True
 
 
-def get_menu_choice():
-	message = create_menu_message()
-	choice = get_valid_choice(message, MENU, error_message_choice)
-	return choice
+# def get_menu_choice():
+# 	message = create_menu_message()
+# 	choice = get_valid_choice(message, MENU, error_message_choice)
+# 	return choice
 
 
 # client = pymongo.MongoClient(os.getenv("MONGO_URL"))

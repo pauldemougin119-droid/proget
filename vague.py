@@ -30,6 +30,6 @@ class Vague:
                 character.attack(choix_enemy)
             choix_enemy.attack(team)
         self.vague_actuel += 1
-        return self.vague_actuel
+        return self.vague_actuel #display_vue()
             
         
