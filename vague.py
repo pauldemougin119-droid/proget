@@ -19,12 +19,14 @@ class Vague:
             return difficulty
     
     def pick_enemy(self, list_monsters):
+        #display_vue(vue_choix_cible)
         choix_enemy= input("Choisissez un ennemi à combattre : ")
         return choix_enemy
         
     def play_vague(self,team,choix_enemy):
         while choix_enemy.is_alive()==True:
             for character in team:
+                #displya_vue(vue_info_tour)
                 character.attack(choix_enemy)
             choix_enemy.attack(team)
         self.vague_actuel += 1

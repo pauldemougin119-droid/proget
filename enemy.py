@@ -10,5 +10,4 @@ class Enemy(Entity):
         #je ne sais pas
         
         return self.loot
-    def play_turn(self):
-        pass
+    

@@ -396,6 +396,7 @@ def get_menu_choice():
 def main():
 	# db = connect_db()
 	while True:
+		#display_vue(vue_leaderboard)
 		choice = get_menu_choice()
 		lancer_processus(choice)
 

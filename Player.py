@@ -16,9 +16,10 @@ class Player:
             return pick_caracter(liste_caractere)
     
     def pick_caracter(self,liste_carractere):    #lien avec affichage pour choisir le personnage
-            choix = int(input("Choisissez un personnage à ajouter à votre équipe (0-2) : "))
-            self.teams.append(liste_carractere[choix-1])
-            return self.team
+        #display_vue(vue_selection_equipe)
+        choix = int(input("Choisissez un personnage à ajouter à votre équipe : "))
+        self.teams.append(liste_carractere[choix-1])
+        return self.team
     
     
     def teams_is_alive(self,teams,max_teams):

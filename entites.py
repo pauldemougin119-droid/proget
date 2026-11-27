@@ -3,7 +3,7 @@ class Entity:
         self.name = name
         self.hp = hp
         self.defense = defense
-        self.attack = attack
+        self.atack = attack
         self.hpmax = hp   
         
     def is_alive(self):
@@ -11,8 +11,8 @@ class Entity:
             return  True
         return False
     
-    def take_damage(self,attack,defense):
-        domage = attack - defense
+    def take_damage(self,atack,defense):
+        domage = atack - defense
         if domage < 0:
             domage = 0
         return domage
@@ -31,5 +31,8 @@ class Entity:
     def play_turn(self,cible):
         attack = cible.attack
         return attack
+    
+    def __str__(self,name,pv,atack,defense):
+        return f"{self.name} a {self.pv} fait {self.atack} de degat et a {self.defense}"
 
   

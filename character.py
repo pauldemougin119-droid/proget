@@ -30,6 +30,7 @@ class Character(Entity):
         return False
     
     def get_equipement(self,slot_name,equipement):
+        #display_vue(vue_inventaire)
         for item in equipement:
             if item.name == slot_name:
                 return item
