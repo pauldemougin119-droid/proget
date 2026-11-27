@@ -1,4 +1,4 @@
-```
+
 from typing import Callable, List
 from rich.panel import Panel
 from rich.text import Text
@@ -111,4 +111,3 @@ class Affichage:
 			expand=True,
 			padding=(1, 2),
 		)
-```
