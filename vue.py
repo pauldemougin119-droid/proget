@@ -4,10 +4,9 @@ from rich.columns import Columns
 from rich.layout import Layout
 from typing import Callable
 from affichage import Affichage
-from character import Character
-from enemy import Enemy
-from items import Items
 from model import SaveDB, ScoreDB
+
+
 OPTIONS_TOUR = ["Attaquer", "Utiliser un objet", "Passer"]
 OPTIONS_ECRAN_TITRE = ["Nouvelle Partie",
                        "Charger Partie", "Leaderboard", "Quitter"]
@@ -30,7 +29,7 @@ def create_columns(cols) -> Layout:
 	return layout
 
 
-def details_objet(objet: Items) -> str:
+def details_objet(objet) -> str:
 	lignes = [
 		objet.name,
 		objet.description,
@@ -42,7 +41,7 @@ def details_objet(objet: Items) -> str:
 	return "\n".join(lignes)
 
 
-def details_sauvegarde(sauvegarde: SaveDB) -> str:
+def details_sauvegarde(sauvegarde) -> str:
 	lignes = [f"Joueur : {sauvegarde.player_name}", f"Score : {sauvegarde.score}"]
 	lignes += ["", "Équipe"]
 	lignes += [f"{perso.name} - PV {perso.hp}" for perso in sauvegarde.equipe]
@@ -53,7 +52,7 @@ def details_sauvegarde(sauvegarde: SaveDB) -> str:
 	return "\n".join(lignes)
 
 
-def VueInventaire(inventaire: List[Items], team: List[Character]) -> Callable:
+def VueInventaire(inventaire: List, team: List) -> Callable:
 	def create_details_info(index: int) -> str:
 		if not inventaire:
 			return "Inventaire vide"
@@ -92,7 +91,7 @@ def VueInventaire(inventaire: List[Items], team: List[Character]) -> Callable:
 	return inner_VueInventaire
 
 
-def VueSelectionCibleObjet(objet: Items, team: List[Character]) -> Callable:
+def VueSelectionCibleObjet(objet, team: List) -> Callable:
 	def inner_VueSelectionCibleObjet(index: int):
 
 		selected_box = Affichage.create_select_box(
@@ -118,7 +117,7 @@ def VueSelectionCibleObjet(objet: Items, team: List[Character]) -> Callable:
 	return inner_VueSelectionCibleObjet
 
 
-def VueTourJoueur(team: List[Character], perso: Character, ennemis: List[Enemy]) -> Callable:
+def VueTourJoueur(team: List, perso, ennemis: List) -> Callable:
 
 	def inner_VueTourJoueur(index: int):
 		selected_box = Affichage.create_info_box(
@@ -153,7 +152,7 @@ def VueTourJoueur(team: List[Character], perso: Character, ennemis: List[Enemy])
 	return inner_VueTourJoueur
 
 
-def VueChoixCible(team: List[Character], perso: Character, ennemis: List[Enemy]) -> Callable:
+def VueChoixCible(team: List, perso, ennemis: List) -> Callable:
 	def inner_VueChoixCible(index: int):
 
 		PersoBox = Affichage.create_info_box(
@@ -188,7 +187,7 @@ def VueChoixCible(team: List[Character], perso: Character, ennemis: List[Enemy])
 	return inner_VueChoixCible
 
 
-def VueInfoTour(team: List[Character], event: str, ennemis: List[Enemy]) -> Callable:
+def VueInfoTour(team: List, event: str, ennemis: List) -> Callable:
     def inner_VueInfoTour(index: int):
         team_box = Affichage.create_info_box(
             titre="Équipe",
@@ -220,7 +219,7 @@ def VueInfoTour(team: List[Character], event: str, ennemis: List[Enemy]) -> Call
     return inner_VueInfoTour
 
 
-def VueSelectionEquipe(team: List[Character], listSelection: List[Character]) -> Callable:
+def VueSelectionEquipe(team: List, listSelection: List) -> Callable:
     def inner_VueSelectionEquipe(index: int):
         team_box = Affichage.create_info_box(
             titre="Équipe",
@@ -261,7 +260,7 @@ def VueEcranTitre() -> Callable:
 	return inner_VueEcranTitre
 
 
-def VueLeaderboard(scores: List[ScoreDB]) -> Callable:
+def VueLeaderboard(scores: List) -> Callable:
 	def inner_VueLeaderboard(index: int):
 		if scores:
 			info = "\n".join(
@@ -296,7 +295,7 @@ def VueGameOver() -> Callable:
 	return inner_VueGameOver
 
 
-def VueChargerSauvegarde(sauvegardes: List[SaveDB]) -> Callable:
+def VueChargerSauvegarde(sauvegardes: List) -> Callable:
 	def create_details_info(index: int) -> str:
 		if not sauvegardes:
 			return "Aucune sauvegarde disponible"
@@ -329,6 +328,11 @@ def VueChargerSauvegarde(sauvegardes: List[SaveDB]) -> Callable:
 
 def VueQuitter() -> Callable:
 	def inner_VueQuitter(index: int) -> Panel:
-		return Panel("Quitter le jeu")
+		return Affichage.create_info_box(
+			titre="Quitter",
+			info="Quitter le jeu",
+			box_color="red",
+			text_color="white"
+		)
 
 	return inner_VueQuitter

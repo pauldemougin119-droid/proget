@@ -28,12 +28,15 @@ class Game:
                 return save
         return None
     def launch_game(self):
-        choix_joueur=input("donner votre psedo :")
-        joueur=Player(choix_joueur,recuperer_persos_db)
-        joueur.pick_caracter(recuperer_persos_db)
-        vague=Vague(recuperer_monstres_db)
-        vague.pick_enemy()
-        vague.play_vague()
+        db = self.client["game_db"]
+        collection = db["charaters"] 
+        list_character=list(collection.find())
+        choix=Affichage.demander_input("donner votre psedo :")
+        joueur=Player(choix,list_character)
+        joueur.create_teams(3,list_character)
+        # vague=Vague(recuperer_monstres_db)
+        # vague.pick_enemy()
+        # vague.play_vague()
         
     def show_leaderboard(self,collection):
         
@@ -42,7 +45,7 @@ class Game:
             print(f"Player: {player['player_name']}, Score: {player['score']},teams: {player['teams']}")
     def exit(self):
         print("Merci d'avoir joué ! À bientôt !")
-        exit()
+        return exit()
         
         
 def recuperer_persos_db(db):

@@ -396,11 +396,6 @@ from vue import *
 def main():
 	# db = connect_db()	
 	choice=Affichage.display_vue(VueEcranTitre(),4)
-	print(choice)
-
-
-
-
 
 	lancer_processus(choice)
 

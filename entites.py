@@ -32,7 +32,7 @@ class Entity:
         attack = cible.attack
         return attack
     
-    def __str__(self,name,pv,atack,defense):
-        return f"{self.name} a {self.pv} fait {self.atack} de degat et a {self.defense}"
+    def __str__(self,name,hp,atack,defense,hpmax):
+        return f"{self.name}  {self.hp}\{self.hpmax},{self.atack},{self.defense}"
 
   
